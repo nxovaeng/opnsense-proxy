@@ -2,6 +2,10 @@
     <VPN>
         <v2rayaSuite VisibleName="v2rayA Suite" cssClass="fa fa-shield fa-fw">
             <v2raya      VisibleName="v2rayA"     order="10" url="/services_v2raya.php"/>
+            <xray        VisibleName="xray"       order="15" url="/services_xray.php"/>
+            <xray_out    VisibleName="xray 出站"  order="16" url="/xray_outbound.php"/>
+            <xray_in     VisibleName="xray 入站"  order="17" url="/xray_inbound.php"/>
+            <xray_rt     VisibleName="xray 路由"  order="18" url="/xray_routing.php"/>
             <tun2socks   VisibleName="tun2socks"  order="20" url="/services_tun2socks.php"/>
             <guide       VisibleName="使用说明"    order="30" url="/guide_v2raya.php"/>
         </v2rayaSuite>

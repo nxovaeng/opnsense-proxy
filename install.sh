@@ -76,12 +76,18 @@ log "$YELLOW" "复制配置文件..."
 log "$YELLOW" "复制服务脚本..."
 cp -f "$SCRIPT_DIR/rc.d/v2raya" "$RC_DIR/"
 cp -f "$SCRIPT_DIR/rc.d/hevsocks5tunnel" "$RC_DIR/"
+cp -f "$SCRIPT_DIR/rc.d/xray-webui" "$RC_DIR/"
 chmod +x "$RC_DIR/v2raya"
 chmod +x "$RC_DIR/hevsocks5tunnel"
+chmod +x "$RC_DIR/xray-webui"
 
 log "$YELLOW" "复制 rc.conf 启用文件..."
 cp -f "$SCRIPT_DIR/rc.conf/v2raya" "$RC_CONF/"
 cp -f "$SCRIPT_DIR/rc.conf/hevsocks5tunnel" "$RC_CONF/"
+cp -f "$SCRIPT_DIR/rc.conf/xray-webui" "$RC_CONF/"
+
+log "$YELLOW" "初始化 xray-webui 配置目录..."
+mkdir -p /usr/local/etc/xray-webui
 
 log "$YELLOW" "复制 Web UI 文件..."
 cp -f "$SCRIPT_DIR/www/"*.php "$WWW_DIR/"
@@ -170,6 +176,9 @@ service v2raya start
 
 log "$YELLOW" "启动 hev-socks5-tunnel..."
 service hevsocks5tunnel start
+
+log "$YELLOW" "启动 xray-webui..."
+service xray_webui start
 
 # ============ 完成 ============
 echo ""
