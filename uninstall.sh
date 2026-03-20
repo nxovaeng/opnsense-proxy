@@ -50,6 +50,10 @@ rm -f /usr/local/www/services_v2raya.php
 rm -f /usr/local/www/status_v2raya.php
 rm -f /usr/local/www/status_v2raya_logs.php
 rm -f /usr/local/www/update_v2raya.php
+rm -f /usr/local/www/services_tun2socks.php
+rm -f /usr/local/www/status_tun2socks.php
+rm -f /usr/local/www/status_tun2socks_logs.php
+rm -f /usr/local/www/guide_v2raya.php
 
 # 删除菜单
 log "$YELLOW" "删除菜单..."
@@ -58,10 +62,12 @@ rm -rf /usr/local/opnsense/mvc/app/models/OPNsense/v2raya
 # 删除插件注册
 log "$YELLOW" "删除插件..."
 rm -f /usr/local/etc/inc/plugins.inc.d/v2raya.inc
+rm -f /usr/local/etc/inc/plugins.inc.d/tun2socks.inc
 
 # 删除 configd actions
 log "$YELLOW" "删除 configd actions..."
 rm -f /usr/local/opnsense/service/conf/actions.d/actions_v2raya.conf
+rm -f /usr/local/opnsense/service/conf/actions.d/actions_tun2socks.conf
 
 # 删除日志
 log "$YELLOW" "删除日志文件..."

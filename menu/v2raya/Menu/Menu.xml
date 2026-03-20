@@ -1,7 +1,9 @@
 <menu>
     <VPN>
         <v2rayaSuite VisibleName="v2rayA Suite" cssClass="fa fa-shield fa-fw">
-            <v2raya VisibleName="v2rayA" order="10" url="/services_v2raya.php"/>
+            <v2raya      VisibleName="v2rayA"     order="10" url="/services_v2raya.php"/>
+            <tun2socks   VisibleName="tun2socks"  order="20" url="/services_tun2socks.php"/>
+            <guide       VisibleName="使用说明"    order="30" url="/guide_v2raya.php"/>
         </v2rayaSuite>
     </VPN>
 </menu>

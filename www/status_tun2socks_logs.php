@@ -1,5 +1,5 @@
 <?php
-// status_v2raya_logs.php — 返回 v2raya 最近日志
+// status_tun2socks_logs.php — 返回 tun2socks 最近日志
 header('Content-Type: application/json');
 
 $max_lines = 5000;
@@ -27,6 +27,6 @@ function getLogTail($log_file, $max_lines, $display_lines) {
 }
 
 echo json_encode([
-    'v2raya' => getLogTail('/var/log/v2raya.log', $max_lines, $display_lines)
+    'tunnel' => getLogTail('/var/log/hevsocks5tunnel.log', $max_lines, $display_lines)
 ]);
 ?>
