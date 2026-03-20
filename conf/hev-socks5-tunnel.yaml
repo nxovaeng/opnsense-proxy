@@ -1,0 +1,23 @@
+tunnel:
+  # TUN 接口名称，需与 OPNsense 接口匹配
+  name: tun_v2raya
+  # 接口 MTU
+  mtu: 9000
+  # 多队列支持（提升性能）
+  multi-queue: true
+  # IPv4 地址
+  ipv4: 198.18.0.1
+
+socks5:
+  # SOCKS5 代理端口 —— 对应 v2rayA 的本地入站端口
+  # 也可以指向其他机器上的 xray/v2ray，例如 192.168.1.100:1080
+  port: 20170
+  address: 127.0.0.1
+  # UDP 转发模式
+  udp: udp
+  # 启用流水线（提升性能）
+  pipeline: true
+
+misc:
+  # 日志级别: debug, info, warn, error
+  log-level: error

@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# PROVIDE: hevsocks5tunnel
+# REQUIRE: DAEMON NETWORKING v2raya
+# KEYWORD: shutdown
+#
+# Add the following lines to /etc/rc.conf to enable hevsocks5tunnel:
+# hevsocks5tunnel_enable="YES"
+
+. /etc/rc.subr
+
+name="hevsocks5tunnel"
+rcvar="hevsocks5tunnel_enable"
+
+load_rc_config $name
+
+: ${hevsocks5tunnel_enable="NO"}
+
+command="/usr/sbin/daemon"
+pidfile="/var/run/${name}.pid"
+hevsocks5tunnel_command="/usr/local/bin/hev-socks5-tunnel /usr/local/etc/hev-socks5-tunnel.yaml"
+command_args="-c -f -o /var/log/${name}.log -P ${pidfile} ${hevsocks5tunnel_command}"
+
+run_rc_command "$1"

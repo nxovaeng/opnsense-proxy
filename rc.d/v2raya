@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# PROVIDE: v2raya
+# REQUIRE: DAEMON NETWORKING
+# KEYWORD: shutdown
+#
+# Add the following lines to /etc/rc.conf to enable v2raya:
+# v2raya_enable="YES"
+
+. /etc/rc.subr
+
+name="v2raya"
+rcvar="v2raya_enable"
+
+load_rc_config $name
+
+: ${v2raya_enable="NO"}
+
+command="/usr/sbin/daemon"
+pidfile="/var/run/${name}.pid"
+
+# 指定 xray-core 路径和 geo 数据目录，避免 v2rayA 自动下载
+export V2RAYA_V2RAY_BIN="/usr/local/bin/xray"
+export V2RAYA_V2RAY_ASSETSDIR="/usr/local/share/xray"
+
+v2raya_command="/usr/local/bin/v2raya --config /usr/local/etc/v2raya"
+command_args="-c -f -o /var/log/${name}.log -P ${pidfile} /usr/bin/env V2RAYA_V2RAY_BIN=${V2RAYA_V2RAY_BIN} V2RAYA_V2RAY_ASSETSDIR=${V2RAYA_V2RAY_ASSETSDIR} ${v2raya_command}"
+
+run_rc_command "$1"
